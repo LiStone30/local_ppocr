@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  paddleocr:
+    image: ccr-2vdh3abv-pub.cnc.bj.baidubce.com/paddlepaddle/paddleocr-genai-vllm-server:latest
+    container_name: paddleocr-vl-server
+    restart: unless-stopped
+
+    # 【修改点 1：正确的 GPU 配置】
+    devices:
+      - "nvidia.com/gpu=all"
+
+    # 端口映射
+    ports:
+      - "8118:8118"
+
+    # 挂载模型目录和启动脚本
+    volumes:
+      - ./models:/app/models
+      - ./entrypoint.sh:/entrypoint.sh     # 【修改点 2：挂载启动脚本】
+
+    # 使用挂载的脚本作为入口点
+    entrypoint: ["/entrypoint.sh"]
