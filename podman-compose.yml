@@ -21,3 +21,6 @@ services:
 
     # 使用挂载的脚本作为入口点
     entrypoint: ["/entrypoint.sh"]
+
+    # 【新增：容器停止后自动删除】
+    auto_remove: true

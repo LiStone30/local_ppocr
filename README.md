@@ -28,7 +28,7 @@ paddleocr genai_server \
   --backend_config /tmp/vllm_config.json
 
 # 健康检查
-curl http://localhost:8118/health
+curl -i http://localhost:8118/health
 
 
 # 简单测试
