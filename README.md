@@ -8,7 +8,7 @@ podman run -d --device nvidia.com/gpu=all --gpus all -p 8118:8118 \
    ccr-2vdh3abv-pub.cnc.bj.baidubce.com/paddlepaddle/paddleocr-genai-vllm-server:latest \
     sleep infinity
 
-podman exec -it f2979dbc5b01 bash
+podman exec -it 87934defe1af bash
 
 cat > /tmp/vllm_config.json << 'EOF'
 {
