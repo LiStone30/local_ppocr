@@ -1,6 +1,10 @@
+# 环境
+pip3 install virtualenv
 
 # 拉一个镜像到本地
 podman pull --platform linux/amd64 ccr-2vdh3abv-pub.cnc.bj.baidubce.com/paddlepaddle/paddleocr-genai-vllm-server:latest
+
+c2dd37a85fbc5b928d20b0f72232daf9a76e35e0b0749f8e5b9703bf706b5bb6
 
 # 运行
 podman run -d --device nvidia.com/gpu=all --gpus all -p 8118:8118 \
@@ -8,7 +12,7 @@ podman run -d --device nvidia.com/gpu=all --gpus all -p 8118:8118 \
    ccr-2vdh3abv-pub.cnc.bj.baidubce.com/paddlepaddle/paddleocr-genai-vllm-server:latest \
     sleep infinity
 
-podman exec -it 87934defe1af bash
+podman exec -it 3dcae7a2f4338fd3b4a44182b8fc389004f5d046d2151775bbbd74b16158c79f bash
 
 cat > /tmp/vllm_config.json << 'EOF'
 {
